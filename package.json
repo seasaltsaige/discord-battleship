@@ -1,0 +1,29 @@
+{
+  "name": "discord-battleship",
+  "version": "0.0.1",
+  "description": "Create and handle advanced versions of the old classic game, BatlleShip!",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Maxisthemoose/discord-uno.git"
+  },
+  "keywords": [
+    "battleship",
+    "games",
+    "battle-ship",
+    "BattleShip",
+    "discord",
+    "discordbot",
+    "discordbattleship",
+    "discord-battleship"
+  ],
+  "author": "Maxisthemoose",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Maxisthemoose/discord-uno/issues"
+  },
+  "homepage": "https://github.com/Maxisthemoose/discord-uno#readme"
+}
