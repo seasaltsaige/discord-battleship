@@ -25,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/Maxisthemoose/discord-uno/issues"
   },
-  "homepage": "https://github.com/Maxisthemoose/discord-uno#readme"
+  "homepage": "https://github.com/Maxisthemoose/discord-uno#readme",
+  "dependencies": {
+    "discord.js": "^12.3.1"
+  }
 }
