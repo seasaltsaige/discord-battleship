@@ -13,6 +13,10 @@ export class DiscordBattleShip {
 
     ) { if (!this.settings.embedColor) this.settings.embedColor = "#6b8ba4" };
 
+    /**
+     * @param message The message object.
+     * To create, handle and finish a new battleship game, call the createGame() method. This method only accepts one parameter, which is the message object. This is also the only method in the package. This method will handle the creation of the game, DMing users, updating each board, attacking the opponent, win states and more. This is all you need to know to create a new game of battle ship! 
+     */
     public async createGame (message: Message): Promise<Message> {
 
         const challenger = <GuildMember>message.member; // Define the challenger
