@@ -322,7 +322,7 @@ export class DiscordBattleShip {
         return doneData;
     }
 
-    private displayBoard(board: { data: string, ship: string, cords: { letter: string, number: number, cord: string } }[][], type: "hit" | "ship") {
+    private displayBoard(board: Board[][], type: "hit" | "ship") {
         let returnData = "";
         returnData = returnData.concat("⬛1️⃣2️⃣3️⃣4️⃣5️⃣6️⃣7️⃣8️⃣9️⃣🔟\n");
         for (let i = 0; i < board.length; i++) {
