@@ -1,11 +1,11 @@
 # What is discord-battleship?
 Discord-BattleShip is meant to create and handle an advanced version of the classic board game, Battle Ship, in your very own Discord.js Bots! An example bot using this package can be found [here](https://github.com/Maxisthemoose/example-discord-battleship-bot).
 ## Table of Contents
-1. [What is discord-battleship]()
-2. [Table of Contents]()
-3. [Installation]()
-4. [Getting Started]()
-5. [Documentation]()
+1. [What is discord-battleship](https://github.com/Maxisthemoose/discord-battleship#what-is-discord-battleship)
+2. [Table of Contents](https://github.com/Maxisthemoose/discord-battleship#table-of-contents)
+3. [Installation](https://github.com/Maxisthemoose/discord-battleship#installation)
+4. [Getting Started](https://github.com/Maxisthemoose/discord-battleship#getting-started)
+5. [Documentation](https://github.com/Maxisthemoose/discord-battleship#documentation)
 ## Installation
 ```cmd
 npm install discord-battleship
