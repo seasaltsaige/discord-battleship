@@ -2,9 +2,9 @@
   "name": "discord-battleship",
   "version": "0.0.1",
   "description": "Create and handle advanced versions of the old classic game, BatlleShip!",
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "test"
+    "build": "tsc -p ."
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/Maxisthemoose/discord-uno#readme",
   "dependencies": {
+    "@types/node": "^14.11.2",
     "discord.js": "^12.3.1"
   }
 }
