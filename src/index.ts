@@ -162,7 +162,7 @@ export class DiscordBattleShip {
                                     players[(player + 1) % players.length].member.send(`Your ${returnData.shipName} was sunk!`);
 
                                     const embed = new MessageEmbed()
-                                        .setTitle("Battle Ship Game <:submarine:753289857907818561>")
+                                        .setTitle("Battle Ship Game")
                                         .setFooter(`${challenger.user.tag} vs ${opponent.user.tag}`)
                                         .setColor(this.settings.embedColor)  
                                     for (const p of players) {
@@ -178,7 +178,7 @@ export class DiscordBattleShip {
                                     p.member.send(`${players[player].member.user} won the game!`);
                                 }
                                 const embed = new MessageEmbed()
-                                    .setTitle("Battle Ship Game <:submarine:753289857907818561>")
+                                    .setTitle("Battle Ship Game")
                                     .setFooter(`${challenger.user.tag} vs ${opponent.user.tag}`)
                                     .setColor(this.settings.embedColor)  
                                     .setDescription(`${players[player].member.user} has won the game!`)
