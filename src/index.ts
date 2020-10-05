@@ -54,7 +54,7 @@ export class DiscordBattleShip {
         
         for (const play of players) {
 
-            const startMsg = await play.member.send(`Here is your starting Attack and Ship board! To add your boat pieces to the Ship board, please use the following command format. \`${this.settings.prefix}add <ship> <Board Cords> <dirrection>\`. An example of this would be, \`${this.settings.prefix}add destroyer D5 down\`\n\nAvailable Ships:\ncarrier (5)\nbattleship (4)\ndestroyer (3)\nsubmarine (3)\npatrolboat (2)`);
+            const startMsg = await play.member.send(`Here is your starting Attack and Ship board! To add your boat pieces to the Ship board, please use the following command format. \`${this.settings.prefix}add <ship> <Board Cords> <direction>\`. An example of this would be, \`${this.settings.prefix}add destroyer D5 down\`\n\nAvailable Ships:\ncarrier (5)\nbattleship (4)\ndestroyer (3)\nsubmarine (3)\npatrolboat (2)`);
             const hitBoard = await play.member.send(`Attack Board:\n${this.displayBoard(play.playerHitBoard, "hit")}`);
             const dmBoard = await play.member.send(`Ship Board:\n${this.displayBoard(play.playerShipBoard, "ship")}`);
 
@@ -70,7 +70,7 @@ export class DiscordBattleShip {
             play.gameChannel = dmBoard.channel.id;
 
             const validBoats: Boat[] = [ { name: "carrier", length: 5, hits: 0, sunk: false }, { name: "battleship", length: 4,hits: 0, sunk: false }, { name: "destroyer", length: 3, hits: 0, sunk: false }, { name: "submarine", length: 3, hits: 0, sunk: false }, { name: "patrolboat", length: 2, hits: 0, sunk: false } ];
-            const validDirrections = [ "up", "down", "right", "left" ];
+            const validdirections = [ "up", "down", "right", "left" ];
 
             dmCollector.on("collect", async (msg: Message) => {
                 const argument = msg.content.slice(this.settings.prefix.length).trim().split(/ +/g);
@@ -92,16 +92,16 @@ export class DiscordBattleShip {
                         const directionRegex = /[a-z]([1-9]|10)/i;
                         if (!cords.match(directionRegex)) return msg.channel.send("Please enter valid cords for your ship. Ex: `D5`").then(m => m.delete({ timeout: 15000 }));
 
-                        const dirrection = argument[2];
-                        if (!dirrection) return msg.channel.send("Please provide a direction to position your boat!").then(m => m.delete({ timeout: 15000 }));
-                        if (!validDirrections.some(value => value === dirrection.toLowerCase())) return msg.channel.send(`Please provide a valid dirrection. Valid Choices: ${validDirrections.join(", ")}`).then(m => m.delete({ timeout: 15000 }));
+                        const direction = argument[2];
+                        if (!direction) return msg.channel.send("Please provide a direction to position your boat!").then(m => m.delete({ timeout: 15000 }));
+                        if (!validdirections.some(value => value === direction.toLowerCase())) return msg.channel.send(`Please provide a valid direction. Valid Choices: ${validdirections.join(", ")}`).then(m => m.delete({ timeout: 15000 }));
 
-                        const checked = this.checkBoatPos(play.playerShipBoard, <Boat>validBoats.find(data => data.name === boatType.toLowerCase()), { letter: cords[0], number: parseInt(cords.slice(1)), cord: cords }, dirrection, "check");
-                        if (!checked) return msg.channel.send(`You can't put the ${boatType} at ${cords} facing ${dirrection}`).then(m => m.delete({ timeout: 15000 }));
+                        const checked = this.checkBoatPos(play.playerShipBoard, <Boat>validBoats.find(data => data.name === boatType.toLowerCase()), { letter: cords[0], number: parseInt(cords.slice(1)), cord: cords }, direction, "check");
+                        if (!checked) return msg.channel.send(`You can't put the ${boatType} at ${cords} facing ${direction}`).then(m => m.delete({ timeout: 15000 }));
 
                         currPlayer.placedBoats.push(<Boat>validBoats.find(data => data.name === boatType.toLowerCase()));
 
-                        const reRender = this.checkBoatPos((<Game>players.find(plyr => plyr.member.id === msg.author.id)).playerShipBoard, <Boat>validBoats.find(boat => boat.name === boatType.toLowerCase()), { letter: cords[0], number: parseInt(cords.slice(1)), cord: cords }, dirrection, "render");
+                        const reRender = this.checkBoatPos((<Game>players.find(plyr => plyr.member.id === msg.author.id)).playerShipBoard, <Boat>validBoats.find(boat => boat.name === boatType.toLowerCase()), { letter: cords[0], number: parseInt(cords.slice(1)), cord: cords }, direction, "render");
 
                         currPlayer.playerShipBoard = reRender.board
                         gameChannelObject.messages.cache.get(currPlayer.gameMessages.boats).edit(`Ship Board:\n${this.displayBoard(reRender.board, "ship")}`);
@@ -232,10 +232,10 @@ export class DiscordBattleShip {
         return { shipBoard, attackBoard, shipName };
     }
 
-    private checkBoatPos(board: Board[][], boat: Boat, cords: Cords, dirrection: string, type: "check" | "render") {
+    private checkBoatPos(board: Board[][], boat: Boat, cords: Cords, direction: string, type: "check" | "render") {
         for (let i = 0; i < board.length; i++) {
             if (board[i].find(data => data.cords.cord.toLowerCase() === cords.cord.toLowerCase())) {
-                switch (dirrection) {
+                switch (direction) {
                     case "up":
                         let countUp = 0;
                         let startPosUp = i;

@@ -37,7 +37,7 @@ client.login("TOKEN");
 ```js
 import { Client } from "discord.js";
 const client = new Client();
-import { DiscordBattleShip } from ("discord-uno");
+import { DiscordBattleShip } from "discord-battleship";
 
 const BattleShip = new DiscordBattleShip({
     embedColor: "RED", /* Any Discord.js Color Resolvable will work. */

@@ -1,6 +1,6 @@
 {
   "name": "discord-battleship",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Create and handle advanced versions of the old classic game, BatlleShip!",
   "main": "lib/index.js",
   "scripts": {
