@@ -1,5 +1,5 @@
 {
-  "name": "discord-battleship",
+  "name": "discord-battleship22",
   "version": "1.0.4",
   "description": "Create and handle advanced versions of the old classic game, BatlleShip!",
   "main": "lib/index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Maxisthemoose/discord-battleship.git"
+    "url": "git+https://github.com/jordytje1/discord-battleship.git"
   },
   "keywords": [
     "battleship",
